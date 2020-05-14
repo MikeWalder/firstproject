@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>jQuery et le DOM</title>
+</head>
+<body>
+
+    <h1>Titre de la page</h1>
+
+    <p>Un paragraphe</p>
+
+    <p id="p2">Un second paragraphe <span class="souligner">écrit en HTML</span></p>
+
+    <p id="p3">Un troisième paragraphe</p>
+
+    <p id="p4">Un quatrième paragraphe avec une <span class="souligner">balise</span> span.</p>
+
+    <ul id="parents">
+        <li>Sous menu A1</li>
+        <li class="bg">Sous menu A2</li>
+        <li>Sous menu A3</li>
+    </ul>
+
+    <ul id="children">
+        <li class="bg">Sous menu B1</li>
+        <li>Sous menu B2</li>
+        <li>Sous menu B3</li>
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+
+            // Cibler tous les p et les masquer
+            $('p').hide();
+
+            // Cibler tous les p et les afficher
+            $('p').show();
+
+            // Cibler tous les p contenant un span et changer la couleur en orange
+            $('p').has('span').css('color', 'orange');
+
+            // cibler tous les spans qui ont la classe "souligner" et appliquer la couleur verte
+            $('span').filter('.souligner').css('color', 'green');
+
+            // Cibler tous les spans qui n'ont pas la classe souligner, on applique la couleur rose
+            $('span').not('.souligner').css('color', 'pink');
+
+            // Cibler le premier paragraphe de ma page et lui appliquer un font-size 34px
+            $('p').first().css('font-size', '34px');
+
+            // Cibler le dernier paragraphe de la page et lui appliquer un font-size de 10px
+            $('p').last().css('font-size', '10px');
+
+            // Cibler le 2ème paragraphe et lui mettre une taille de 16px
+            $('p').eq(1)
+        });
+    </script>
+    
+</body>
+</html>
